@@ -1526,6 +1526,7 @@ class OpponentAI {
         this.stlMesh.castShadow = true;
         this.model.add(this.stlMesh);
         this.stlLoaded = true;
+        this.rightArm.visible = false;
         if (this._readyToStart) { this._readyToStart(); this._readyToStart = null; }
       },
       (xhr) => {
