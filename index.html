@@ -1522,7 +1522,10 @@ class OpponentAI {
         const mat = new THREE.MeshStandardMaterial({ color: 0xcccccc, roughness: 0.5, metalness: 0.15 });
         this.stlMesh = new THREE.Mesh(geometry, mat);
         this.stlMesh.scale.set(scale, scale, scale);
-        this.stlMesh.position.y = -box.min.y * scale;
+        this.stlMesh.rotation.y = Math.PI;
+        const box_cx = (box.max.x + box.min.x) / 2;
+        const box_cz = (box.max.z + box.min.z) / 2;
+        this.stlMesh.position.set(box_cx * scale, -box.min.y * scale, box_cz * scale);
         this.stlMesh.castShadow = true;
         this.model.add(this.stlMesh);
         this.stlLoaded = true;
